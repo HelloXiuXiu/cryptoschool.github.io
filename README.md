@@ -1,11 +1,11 @@
-# LANDING PAGE
+# Crypto School Landing page
 
-## cryptoschool.github.io
-
-Crypto School Landing page (test task).
+## Test assignment.
+<br>
+Landing page featured with scroll animation, simple calculator and slider. 
 <br>
 <br>
-Featured with scroll animation, simple calculator and slider. 
+Design file: <a href="https://helloxiuxiu.github.io/cryptoschool.github.io/](https://www.figma.com/file/IqnB4AJ1RQDCVAzFRyZ6to/Crypto-Landing-Page-(Community)-(Copy)?type=design&node-id=302%3A36&t=563Ru6JGmv2uklgO-1)" target="_blank">Figma.</a>
 <br>
 <a href="https://helloxiuxiu.github.io/cryptoschool.github.io/" target="_blank">See online.</a>
 
