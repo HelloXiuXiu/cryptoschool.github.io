@@ -14,7 +14,7 @@ document.onscroll = (event) => {
     let x = -Math.ceil(benefitShapeWrap.getBoundingClientRect().top) / 1200 + 3;
 
     benefitShape.style.transform = "scaleX(" + x + ")" + " " + "scaleY(" + y + ")";
-	};
+  };
 };
 
 // PARALAX ANIMATION (not ready yet)
@@ -29,7 +29,6 @@ function scrollBanner() {
   }
 }
 window.addEventListener('scroll', scrollBanner);
-
 
 // SLIDER
 let arrowLeft = document.querySelector('.arrow_left');
@@ -50,24 +49,24 @@ function MoveSlides(event) {
   arrowRight.style.pointerEvents = "auto";
 
   if (event.target == arrowLeft) {
-		step = step + 100;
-		slider.style.transform = "translateX(" + step + "%)";
-		counter--;
-	} else if (event.target == arrowRight) {
-		step = step - 100;
-		slider.style.transform = "translateX(" + step + "%)";
-		counter++;
-	};
-	if (counter == slides - 1) {
-		arrowRight.style.pointerEvents = "none";
-		arrowRight.style.opacity = "0.5";
-	} else if (counter == 0) {
-		arrowLeft.style.pointerEvents = "none";
-		arrowLeft.style.opacity = "0.5";
-	} else {
-		arrowLeft.style.opacity = "1";
-		arrowRight.style.opacity = "1";
-	}
+    step = step + 100;
+    slider.style.transform = "translateX(" + step + "%)";
+    counter--;
+  } else if (event.target == arrowRight) {
+    step = step - 100;
+    slider.style.transform = "translateX(" + step + "%)";
+    counter++;
+  };
+  if (counter == slides - 1) {
+    arrowRight.style.pointerEvents = "none";
+    arrowRight.style.opacity = "0.5";
+  } else if (counter == 0) {
+    arrowLeft.style.pointerEvents = "none";
+    arrowLeft.style.opacity = "0.5";
+  } else {
+    arrowLeft.style.opacity = "1";
+    arrowRight.style.opacity = "1";
+  }
 };
 
 arrowLeft.addEventListener('click', MoveSlides);
@@ -80,33 +79,33 @@ let calcButton = document.querySelector('.calculator__button');
 
 function disableInputField(a, b) {
   if (a.value) {
-   	b.style.pointerEvents = "none";
+    b.style.pointerEvents = "none";
   } else {
     b.style.pointerEvents = "auto";
-  } 
+  }
 };
 
 function clearInput() {
-	potentialProfit.value = '';
-	initialMoney.value = '';
+  potentialProfit.value = '';
+  initialMoney.value = '';
 };
 
-initialMoney.addEventListener('input', function() { disableInputField(initialMoney, potentialProfit); } );
-potentialProfit.addEventListener('input', function() { disableInputField(potentialProfit, initialMoney); } );
+initialMoney.addEventListener('input', function() { disableInputField(initialMoney, potentialProfit); });
+potentialProfit.addEventListener('input', function() { disableInputField(potentialProfit, initialMoney); });
 
 calcButton.onclick = () => {
-	if (initialMoney.value) {
-		  let m = Math.ceil(initialMoney.value * 3);
-		  if (m < 0) m = 0;
-      potentialProfit.value = m;
-	} else if (potentialProfit.value) {
-		  let m = Math.ceil(potentialProfit.value / 3);
-		  if (m < 0) m = 0;
-      initialMoney.value = m;
-	} 
-	potentialProfit.style.pointerEvents = "auto";
-	initialMoney.style.pointerEvents = "auto";
+  if (initialMoney.value) {
+    let m = Math.ceil(initialMoney.value * 3);
+    if (m < 0) m = 0;
+    potentialProfit.value = m;
+  } else if (potentialProfit.value) {
+    let m = Math.ceil(potentialProfit.value / 3);
+    if (m < 0) m = 0;
+    initialMoney.value = m;
+  }
+  potentialProfit.style.pointerEvents = "auto";
+  initialMoney.style.pointerEvents = "auto";
 
-	initialMoney.onfocus = clearInput;
-	potentialProfit.onfocus = clearInput;
+  initialMoney.onfocus = clearInput;
+  potentialProfit.onfocus = clearInput;
 };
