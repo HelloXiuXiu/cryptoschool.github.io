@@ -77,6 +77,8 @@ let initialMoney = document.querySelector("#initial");
 let potentialProfit = document.querySelector("#profit");
 let calcButton = document.querySelector('.calculator__button');
 
+let submitCounter = 0;
+
 function disableInputField(a, b) {
   if (a.value) {
     b.style.pointerEvents = "none";
@@ -88,6 +90,8 @@ function disableInputField(a, b) {
 function clearInput() {
   potentialProfit.value = '';
   initialMoney.value = '';
+  initialMoney.removeEventListener('focus', clearInput);
+  potentialProfit.removeEventListener('focus', clearInput);
 };
 
 initialMoney.addEventListener('input', function() { disableInputField(initialMoney, potentialProfit); });
@@ -103,9 +107,12 @@ calcButton.onclick = () => {
     if (m < 0) m = 0;
     initialMoney.value = m;
   }
+ 
+  initialMoney.addEventListener('focus', clearInput);
+  potentialProfit.addEventListener('focus', clearInput);
+
   potentialProfit.style.pointerEvents = "auto";
   initialMoney.style.pointerEvents = "auto";
-
-  initialMoney.onfocus = clearInput;
-  potentialProfit.onfocus = clearInput;
 };
+
+
